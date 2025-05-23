@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Freight Company - Reliable Logistics Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #4f46e5;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #4f46e5;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.9), rgba(147, 51, 234, 0.9));
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,128C960,117,1056,75,1152,64C1248,53,1344,75,1392,85.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') bottom;
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Services Section */
+        .services {
+            background: white;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: linear-gradient(145deg, #f8fafc, #e2e8f0);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(79, 70, 229, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(79, 70, 229, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #4f46e5;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #4f46e5;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: #e2e8f0;
+            transform: translateX(5px);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: #4f46e5;
+            width: 40px;
+        }
+
+        .contact-form {
+            background: linear-gradient(145deg, #f8fafc, #e2e8f0);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(79, 70, 229, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4f46e5;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #4f46e5, #7c3aed);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Floating shapes */
+        .floating-shape {
+            position: absolute;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-1 {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .shape-3 {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Nexus Freight</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+            <div class="container">
+                <div class="hero-content fade-in">
+                    <h1>Nexus Freight Company</h1>
+                    <p>Your trusted logistics partner for reliable, efficient freight delivery across Florida and the East Coast. We connect your business to its destination.</p>
+                    <a href="#contact" class="cta-button">Get Quote Today</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card fade-in">
+                        <div class="service-icon">🚛</div>
+                        <h3>Box Truck Delivery</h3>
+                        <p>Reliable box truck services for small to medium shipments. Perfect for retail deliveries, equipment transport, and regional freight.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">📦</div>
+                        <h3>Last Mile Delivery</h3>
+                        <p>Efficient last-mile delivery solutions to get your products to customers quickly and safely. Specialized in time-sensitive deliveries.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">🗺️</div>
+                        <h3>Regional Transport</h3>
+                        <p>Comprehensive coverage throughout Florida with expansion services to Georgia. Flexible routing to meet your business needs.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">⚡</div>
+                        <h3>Express Service</h3>
+                        <p>When time is critical, our express delivery service ensures your shipments reach their destination on schedule.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">📊</div>
+                        <h3>Load Board Solutions</h3>
+                        <p>Competitive rates through load board partnerships, offering flexibility and cost-effective shipping options.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">🤝</div>
+                        <h3>Custom Logistics</h3>
+                        <p>Tailored logistics solutions for businesses of all sizes. We adapt our services to meet your unique shipping requirements.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text fade-in">
+                        <h2>About Nexus Freight</h2>
+                        <p>Founded in Jacksonville, Florida, Nexus Freight Company is a dynamic logistics startup committed to providing exceptional freight delivery services across Florida and the expanding East Coast market.</p>
+                        <p>Our team combines industry expertise with fresh innovation, focusing on building strong partnerships with local businesses while maintaining the flexibility to serve regional markets efficiently.</p>
+                        <p>We're not just moving freight – we're building the future of logistics, one delivery at a time.</p>
+                    </div>
+                    <div class="stats fade-in">
+                        <div class="stat">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Reinvestment Rate</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Support Available</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">FL + GA</div>
+                            <div class="stat-label">Service Areas</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">Growing</div>
+                            <div class="stat-label">Fleet Size</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="contact-content">
+                    <div class="contact-info fade-in">
+                        <h3>Get in Touch</h3>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <strong>Location</strong><br>
+                                Jacksonville, Florida
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <strong>Email</strong><br>
+                                sales@nexusfreightcompany.com
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🚛</div>
+                            <div>
+                                <strong>Services</strong><br>
+                                Box Truck Delivery, Last Mile, Regional Transport
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">⏰</div>
+                            <div>
+                                <strong>Hours</strong><br>
+                                Business hours vary by service needs
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form fade-in">
+                        <h3>Request a Quote</h3>
+                        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                            <div class="form-group">
+                                <label for="name">Company Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Service Needed</label>
+                                <input type="text" id="service" name="service" placeholder="e.g., Regular deliveries, One-time shipment">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Details</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Tell us about your shipping needs, frequency, locations, etc."></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Quote Request</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Nexus Freight Company. All rights reserved. | Jacksonville, Florida</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            // Let Formspree handle the submission
+            // Show a temporary success message
+            setTimeout(() => {
+                alert('Thank you for your quote request! We will contact you within 24 hours.');
+            }, 100);
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
